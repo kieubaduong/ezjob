@@ -97,3 +97,84 @@ class _ItemWidget extends StatefulWidget {
   @override
   State<_ItemWidget> createState() => _ItemWidgetState();
 }
+
+class _ItemWidgetState extends State<_ItemWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      container: true,
+      selected: widget.isSelected,
+      child: AnimatedContainer(
+        width: widget.isSelected ? 130 : 50,
+        height: widget.item.height,
+        duration: widget.animationDuration,
+        curve: widget.curve,
+        decoration: BoxDecoration(
+          color: widget.isSelected
+              ? widget.item.activeColor.withOpacity(1)
+              : widget.backgroundColor,
+          borderRadius: BorderRadius.circular(widget.itemCornerRadius),
+        ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const NeverScrollableScrollPhysics(),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 0),
+            width: widget.isSelected ? 130 : 50,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  width: 5,
+                ),
+                IconTheme(
+                  data: IconThemeData(
+                    size: widget.iconSize,
+                    color: widget.isSelected
+                        ? widget.item.childColor?.withOpacity(1)
+                        : widget.item.inactiveColor ?? widget.item.childColor,
+                  ),
+                  child: widget.item.icon,
+                ),
+                if (widget.isSelected)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    child: Text(
+                      widget.item.title,
+                      style: TextStyle(
+                        fontSize: 15.5,
+                        color: widget.item.childColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BottomNavigationBarCustomItem {
+  BottomNavigationBarCustomItem({
+    required this.icon,
+    required this.title,
+    this.activeColor = Colors.blue,
+    this.textAlign,
+    this.inactiveColor,
+    this.childColor,
+    this.height = double.maxFinite,
+  });
+
+  final Widget icon;
+  final String title;
+  final Color activeColor;
+  final Color? inactiveColor;
+  final TextAlign? textAlign;
+  final Color? childColor;
+  final double height;
+}

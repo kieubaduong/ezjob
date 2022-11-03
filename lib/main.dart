@@ -39,5 +39,11 @@ initData() async {
   }
 
   if (UserController.instance.userToken != "") {
+    var res = await AuthService.instance
+        .getUserData(token: UserController.instance.userToken);
+    if (res.statusCode == 200) {
+      UserController.instance.currentUser =
+          User.fromJson(jsonDecode(res.body)["data"][0]);
+    }
   }
 }
