@@ -3,11 +3,6 @@ import 'package:cliver_mobile/app/features/buyer/order/buyer_order.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../features/chat/screens/conversation_screen.dart';
-import '../features/seller/home/seller_home.dart';
-import '../features/seller/post/screens/main_page.dart';
-import '../features/setting/screens/main_screen.dart';
-
 class BottomBarController extends GetxController {
   static final BottomBarController ins = Get.put(BottomBarController());
 

@@ -1,7 +1,4 @@
 import 'package:cliver_mobile/app/core/utils/localization_service.dart';
-import 'package:cliver_mobile/app/core/values/app_colors.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 void showSnackBar(BuildContext context, String text) {
@@ -47,21 +44,4 @@ showLanguageDialog(BuildContext context) {
       );
     },
   );
-}
-
-void configLoadingBar() {
-  EasyLoading.instance
-    ..indicatorType = EasyLoadingIndicatorType.ring
-    ..loadingStyle = EasyLoadingStyle.custom
-    ..indicatorSize = 45.0
-    ..radius = 10.0
-    ..backgroundColor = Colors.black.withOpacity(0.1)
-    ..indicatorColor = AppColors.primaryColor
-    ..userInteractions = false
-    ..dismissOnTap = false
-    ..textColor = Colors.black;
-}
-
-extension GetSize on BuildContext {
-  Size get screenSize => MediaQuery.of(this).size;
 }
