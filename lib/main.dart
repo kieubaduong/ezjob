@@ -1,13 +1,10 @@
 import 'dart:convert';
-
-import 'package:cliver_mobile/app/controller/darkmode_controller.dart';
-import 'package:cliver_mobile/app/core/utils/utils.dart';
-import 'package:cliver_mobile/data/models/user.dart';
-import 'package:cliver_mobile/data/services/AuthService.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'app/app.dart';
+import 'app/core/values/app_colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

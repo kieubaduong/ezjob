@@ -1,4 +1,6 @@
+import 'package:ezjob/app/routers/routes.dart';
 import 'package:get/get.dart';
+import '../features/my_bottom_bar.dart';
 
 //routes navigation
 class AppPages {

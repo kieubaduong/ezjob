@@ -1,5 +1,7 @@
-import 'package:cliver_mobile/app/core/utils/localization_service.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+
+import 'localization_service.dart';
 
 void showSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(
